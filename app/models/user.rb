@@ -8,7 +8,11 @@ class User
 
   # save encrypted string as a password digest
   def password=(unencrypted_password)
-  	self.password_digest = BCrypt::Password.create(unencrypted_password)
+  	unless unencrypted_password.empty?
+  		# keep the unencrypted password in memory for a bit
+  		@password = unencrypted_password
+  		self.password_digest = BCrypt::Password.create(unencrypted_password)
+  	end	
   end
 
   # a new method, to authenticate a user
