@@ -38,21 +38,22 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+  # Cleanup the DB in between test runs
   config.before(:suite) do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
-    end
+    DatabaseCleaner[:mongoid].strategy = :truncation
+    DatabaseCleaner[:mongoid].clean_with(:truncation)
+  end
 
-    config.before(:each) do
-      DatabaseCleaner.start
-    end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
-    config.after(:each) do
-      DatabaseCleaner.clean
-    end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
     
-    config.include(Capybara::DSL, :type => :feature)
-    config.infer_spec_type_from_file_location!
-    config.include Capybara::DSL
-    config.include FactoryGirl::Syntax::Methods
+  config.include(Capybara::DSL, :type => :feature)
+  config.infer_spec_type_from_file_location!
+  config.include Capybara::DSL
+  config.include FactoryGirl::Syntax::Methods
 end
