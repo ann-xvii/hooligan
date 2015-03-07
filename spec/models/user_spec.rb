@@ -37,4 +37,8 @@ RSpec.describe User, type: :model do
 	  expect(user1).to be_invalid
 	  expect(user2).to be_invalid
 	end
+
+  it "has a password longer than 6 chracters"
+  it "has a password less than 20 characters"
+  
 end
