@@ -24,6 +24,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'
 end
 
+# gem to make css work better in heroku
+gem 'rails_12factor', group: :production
+
+# gem for thin
+gem 'thin', group: :production
 
 
 gem 'factory_girl_rails', '~> 4.5.0'
