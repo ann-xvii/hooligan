@@ -5,10 +5,11 @@ class SessionsController < ApplicationController
 	def create
 		user = User.where(email: params[:login][:email]).first
 		if user && user.authenticate(params[:login][:password])
-			session[:user_id] = user.id.to_s
-      		redirect_to users_path
+			log_in user
+      		redirect_to user
       	else
-      		redirect_to login_path
+      		flash.now[:danger] = "Invalid email or password combination."
+      		render :new
       	end
 	end
 
