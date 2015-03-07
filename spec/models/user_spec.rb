@@ -38,7 +38,14 @@ RSpec.describe User, type: :model do
 	  expect(user2).to be_invalid
 	end
 
-  it "has a password longer than 6 chracters"
-  it "has a password less than 20 characters"
+  it "has a password longer than 6 chracters" do
+    user = FactoryGirl.build(:user, password: "a"*5)
+    expect(user).to be_invalid
+  end
+
+  it "has a password less than 20 characters" do
+    user = FactoryGirl.build(:user, password: "a"*21)
+    expect(user).to be_invalid
+  end
   
 end
