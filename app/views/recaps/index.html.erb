@@ -1,4 +1,8 @@
 <h1>Futbol Terminology</h1>
 <% @posts.each do |post| %>
-<p><%= post %></p>
+	<p><%= post[:title] %></p>
+<% end %>
+
+<% @definitions.each do |definition| %>
+	<p><%= definition[:body] %></p>
 <% end %>

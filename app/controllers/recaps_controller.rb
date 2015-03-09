@@ -6,13 +6,21 @@ class RecapsController < ApplicationController
 	Capybara.default_driver = :poltergeist
 
 	def index
-		visit "http://cleveland.cbslocal.com/2014/06/11/world-cup-for-dummies-soccer-lingo-you-need-to-know/"
+		visit "http://www.football-bible.com/soccer-glossary/letterb.html"
 
-		@posts = all("p").map do |post|
+		@posts = all("h3").map do |post|
 			{
 				title: post.text
-
 			}
 		end
+
+		@definitions = all("h3 + p").map do |definition|
+			{
+				body: definition.text
+			}
+		end
+
+		@key_vals = {}
+		# push title and body to new object and use object to display definitions and terms
 	end
 end
