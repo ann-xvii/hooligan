@@ -5,6 +5,7 @@ class User
   field :email, type: String
   field :password_digest, type: String
   field :remember_digest, type: String
+  field :admin, type: Boolean, default: false
 
   mount_uploader :image, AvatarUploader
   field :remove_image

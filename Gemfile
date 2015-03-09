@@ -23,6 +23,10 @@ gem 'mini_magick' # post upload image processing
 gem 'rmagick', '~> 2.13.4'
 gem 'figaro'
 
+gem 'will_paginate', '~> 3.0.6'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate_mongoid'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
