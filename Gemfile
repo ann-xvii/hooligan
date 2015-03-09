@@ -20,7 +20,7 @@ gem 'carrierwave'
 gem 'carrierwave-mongoid'
 gem 'fog' # required for Amazon S3
 gem 'mini_magick' # post upload image processing
-
+gem 'rmagick', '~> 2.13.4'
 gem 'figaro'
 
 group :development, :test do

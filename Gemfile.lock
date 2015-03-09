@@ -280,6 +280,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    rmagick (2.13.4)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -374,6 +375,7 @@ DEPENDENCIES
   quiet_assets (~> 1.1.0)
   rails (= 4.2.0)
   rails_12factor
+  rmagick (~> 2.13.4)
   rspec-rails (~> 3.2.1)
   rspec_junit_formatter!
   sass-rails (~> 5.0)
