@@ -1,5 +1,4 @@
 class User
-
   include Mongoid::Document
   field :firstname, type: String
   field :lastname, type: String
@@ -10,6 +9,7 @@ class User
   validates :lastname, presence: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: {case_sensitive: false }
   validates :password, presence: true, length: { in: 6..20}, confirmation: true
+  before_save :downcase_email
   attr_reader :password
   
   def fullname
@@ -37,6 +37,11 @@ class User
   	else
   		return false
   	end
+  end
+
+
+  def downcase_email
+    self.email = email.downcase!
   end
 
 end
