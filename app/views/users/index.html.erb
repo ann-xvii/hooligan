@@ -2,5 +2,10 @@
 <ul>
 	<% @users.each do |user| %>
 		<li><%= link_to user.firstname, user %></li>
+		<% if user.image %>
+			<%= image_tag user.image.url %>
+		<% else %>
+			<%= image_tag('default-soccer-ball.jpg') %>
+		<% end %>
 	<% end %>
 </ul>

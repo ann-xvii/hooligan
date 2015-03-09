@@ -15,6 +15,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.10'
 gem 'quiet_assets', '~> 1.1.0'
 
+### CarrierWave Gems ###
+gem 'carrierwave'
+gem 'carrierwave-mongoid'
+gem 'fog' # required for Amazon S3
+gem 'mini_magick' # post upload image processing
+
+gem 'figaro'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

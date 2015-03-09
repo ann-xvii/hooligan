@@ -6,6 +6,9 @@ class User
   field :password_digest, type: String
   field :remember_digest, type: String
 
+  mount_uploader :image, AvatarUploader
+  field :remove_image
+
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: {case_sensitive: false }
