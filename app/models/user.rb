@@ -5,14 +5,19 @@ class User
   field :email, type: String
   field :password_digest, type: String
   field :remember_digest, type: String
+  field :admin, type: Boolean, default: false
+
+  mount_uploader :image, AvatarUploader
+  field :remove_image
 
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: {case_sensitive: false }
-  validates :password, presence: true, length: { in: 6..20}, confirmation: true
+  validates :password, presence: true, length: { in: 6..20}, confirmation: true, allow_blank: true
  
   attr_reader :password
   attr_accessor :remember_token
+  attr_accessor :remove_image
   
   def fullname
     "#{firstname} #{lastname}"

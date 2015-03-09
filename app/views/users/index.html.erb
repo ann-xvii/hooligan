@@ -1,6 +1,19 @@
+<% provide(:title, "All") %>
 <h1>Hooligans!</h1>
+
+<%= will_paginate @users %>
 <ul>
 	<% @users.each do |user| %>
-		<li><%= link_to user.firstname, user %></li>
+		<li><%= link_to user.firstname, user %><% if current_user.admin? && !current_user?(user) %> 
+			<%= link_to "delete", user, method: :delete,
+												data: { confirm: "You sure?" } %>
+		<% end %></li>
+
+		<% if user.image %>
+			<%= image_tag user.image.url(:full) %>	
+		<% end %>
+
 	<% end %>
 </ul>
+
+<%= will_paginate @users %>
