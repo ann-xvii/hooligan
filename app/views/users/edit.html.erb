@@ -7,7 +7,7 @@
 		<%= render 'fields', f: f %>
 		<div class="form-group">
 			<%= f.label :remove_image %>
-			<%= f.checkbox :remove_image, class: 'form-control' %>
+			<%= f.check_box :remove_image, class: 'form-control' %>
 			<%= image_tag @user.image.url(:full) %>
 		</div>
 		<%= f.submit "Save changes", class: "btn btn-success" %>
