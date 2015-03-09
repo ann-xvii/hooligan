@@ -30,9 +30,10 @@ gem 'rails_12factor', group: :production
 # gem for thin
 gem 'thin', group: :production
 
-
+# gems for testing and continuous integration
 gem 'factory_girl_rails', '~> 4.5.0'
 gem 'capybara', '~> 2.4.4'
+gem 'poltergeist', '~> 1.6.0'
 gem 'database_cleaner', '~> 1.3.0'
 gem 'rspec_junit_formatter', :github => 'circleci/rspec_junit_formatter', group: :test
 

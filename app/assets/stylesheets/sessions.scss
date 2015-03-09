@@ -1,3 +1,39 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+    text-align: center;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  // @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+
+/* forms */
+
+.checkbox {
+	margin-top: -10px;
+	margin-bottom: 10px;
+	span {
+		margin-left: 20px;
+		font-weight: normal;
+	}
+}
+
+.checkbox input[type="checkbox"] {
+	margin-left: 0 !important;
+}
+
+#session_remember_me {
+	width: auto;
+	margin-left: 0;
+}
