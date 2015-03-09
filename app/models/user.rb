@@ -10,7 +10,7 @@ class User
   validates :lastname, presence: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: {case_sensitive: false }
   validates :password, presence: true, length: { in: 6..20}, confirmation: true
-  before_save :downcase_email
+ 
   attr_reader :password
   attr_accessor :remember_token
   
@@ -42,9 +42,7 @@ class User
   end
 
 
-  def downcase_email
-    self.email = email.downcase!
-  end
+  
 
 
   # returns a hash digest of the given string
@@ -67,7 +65,12 @@ class User
   end
 
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def forget
+    update_attribute(:remember_digest, nil)
   end
 
 end
