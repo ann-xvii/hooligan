@@ -8,19 +8,23 @@ class RecapsController < ApplicationController
 	def index
 		visit "http://www.football-bible.com/soccer-glossary/letterb.html"
 
-		@posts = all("h3").map do |post|
-			{
-				title: post.text
-			}
-		end
+		definitions = []
+		# @posts = all("#glossarycontent").map do |post|
+		# 	{
+		# 		title: post.find("h3").text,
+		# 		body: post.find("p").text
+		# 	}
+		# end
 
-		@definitions = all("h3 + p").map do |definition|
-			{
-				body: definition.text
-			}
-		end
+		# @definitions = all("h3 + p").map do |definition|
+		# 	{
+		# 		body: definition.text
+		# 	}
+		# end
+		@posts = all("#glossarycontent")
 
-		@key_vals = {}
-		# push title and body to new object and use object to display definitions and terms
+		
+
+
 	end
 end
