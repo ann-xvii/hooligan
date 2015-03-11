@@ -1,30 +1,29 @@
 require 'capybara'
 require 'capybara/poltergeist'
+require 'nokogiri'
+require 'open-uri'
+require 'mechanize'
 
 class RecapsController < ApplicationController
 	include Capybara::DSL
 	Capybara.default_driver = :poltergeist
 
 	def index
-		visit "http://www.football-bible.com/soccer-glossary/letterb.html"
+		# set base url
+		soccerlens_url = "http://soccerlens.com/"
 
-		definitions = []
-		# @posts = all("#glossarycontent").map do |post|
-		# 	{
-		# 		title: post.find("h3").text,
-		# 		body: post.find("p").text
-		# 	}
-		# end
+		soccerlens_data = Nokogiri::HTML(open(soccerlens_url))
 
-		# @definitions = all("h3 + p").map do |definition|
-		# 	{
-		# 		body: definition.text
-		# 	}
-		# end
-		@posts = all("#glossarycontent")
+		# article root node is .articleindex
 
-		
+		# article title
+		soccerlens_data.at_css(".articleindex .postWrapper .postTitle a").text
 
+		# article link
+		soccerlens_data.at_css(".articleindex .postWrapper .postTitle a").attr("href")
 
+		# article excerpt
+		soccerlens_data.at_css(".articleindex .postWrapper .article-excerpt").text.strip
 	end
+
 end
