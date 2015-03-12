@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :users
 
   get '/recaps' => 'recaps#index', as: :recaps
+  get '/in_depth' => 'recaps#analysis', as: :in_depth
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

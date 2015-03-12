@@ -1,5 +1,7 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
+
   field :firstname, type: String
   field :lastname, type: String
   field :email, type: String
@@ -21,6 +23,10 @@ class User
   attr_accessor :remember_token
   attr_accessor :remove_image
   
+  def date_published
+    created_at.localtime.strftime("%A, %B %-d, %Y at %l:%M %p")
+  end
+
   def fullname
     "#{firstname} #{lastname}"
   end

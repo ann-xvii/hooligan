@@ -1,7 +1,7 @@
 <div class="container">
 	<h1>Football Recaps</h1>
 
-	<h3>Did you see that ludicrous display last night? &#0153;</h3>
+	<!-- <h3>Did you see that ludicrous display last night? &#0153;</h3> -->
 
 	<h4><%#= link_to @ludicrous_title, @ludicrous_link %></h4>
 	<h6><%#= link_to @ludicrous_date, @ludicrous_author_link %></h6>
@@ -13,9 +13,10 @@
 
 	<div class="row">
 		<div class="col-md-7">
+		<h3 style="text-align: center; padding-bottom: 10px;">Today's Top Topics</h3>
 			<% @soccer_article_container.each do |article| %>
 			<div class="articleWrapper">
-				<h4><%= article[:title] %></h4>
+				<h4><%= link_to article[:title], article[:link] %></h4>
 				<h6><%= link_to article[:date], article[:author_link] %></h6>
 				<p class="article-style">
 					<%= link_to article[:excerpt], article[:link] %>

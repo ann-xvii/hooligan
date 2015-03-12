@@ -73,4 +73,8 @@ class RecapsController < ApplicationController
 		
 	end
 
+	def analysis
+
+	end
+
 end

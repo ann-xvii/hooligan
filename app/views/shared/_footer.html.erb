@@ -10,6 +10,8 @@
   	  				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b>
   	  				</a>
   	  				<ul class="dropdown-menu">
+                <li><%= link_to "Recaps", recaps_path %></li>
+                <li><%= link_to "In-Depth", in_depth_path %></li>
                 <li><%= link_to "Users", users_path %></li>
   	  					<li><%= link_to "Profile", current_user %></li>
   	  					<li><%= link_to "Settings", edit_user_path(current_user) %></li>

@@ -17,5 +17,12 @@ img {
 
 	a {
 		color: #222;
+		&:hover {
+			text-decoration: none;
+		}
 	}
+}
+
+h4 a {
+	color: #222;
 }
