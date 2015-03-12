@@ -8,8 +8,8 @@ class PostsController < ApplicationController
 			flash[:success] = "Post created!"
 			redirect_to recaps_url
 		else
-			@feed_items = []
-			render 'static_pages/home'
+			@all_posts = []
+			render recaps_url
 		end 
 	end
 
