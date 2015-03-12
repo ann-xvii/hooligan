@@ -12,8 +12,8 @@
 	background: image-url('somunequip.jpg');
 
 	.welcome-div {
-		font-family: Times New Roman;
-		color: rgba(255, 255, 255, 0.8);
+		font-family: Times New Roman, serif;
+		color: rgba(255, 255, 255, 0.9);
 		position: absolute;
 		top: 12%;
 		left: 40%;
@@ -27,7 +27,7 @@
 		p {
 			font-size: 1.5em;
 			a {
-				color: rgba(255, 255, 255, 0.8);
+				color: rgba(255, 255, 255, 0.9);
 				text-decoration: none;
 			}
 		}
@@ -35,12 +35,19 @@
 	}
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 600px) {
+		.welcome-div {
+			position: absolute;
+			top: 30px !important;
+			left: 10% !important;
+			
+		}
+
 		h1 {
-			font-size: 2em;
+			font-size: 2em !important;
 		}
 		p.definition, p {
-			font-size: 1em;
+			font-size: 1em !important;
 		}
 	
 }
