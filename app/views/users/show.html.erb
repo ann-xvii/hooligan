@@ -47,9 +47,11 @@
                         <% if @user.posts.any?%>
                             <h3>Posts (<%= @user.posts.count %>)</h3>
                             <ol class="posts">
-                                <%= render @posts %>
+                                <% @user.posts.each do |post| %>
+                                    <p><%= post.content %></p>
+                                <% end %>
                             </ol>
-                            <%= will_paginate @posts %>
+                            <%#= will_paginate @user.posts %>
                         <% end %>
                     </div>
                     <div class="col-lg-12">
