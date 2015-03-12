@@ -9,6 +9,13 @@ class RecapsController < ApplicationController
 	Capybara.default_driver = :poltergeist
 
 	def index
+		# add placeholder for current user to comment on the games
+		if logged_in?
+			@post = current_user.posts.build if logged_in?
+			@feed_items = current_user.feed.order_by(created_at: :desc)
+		end
+
+		# initialize mechanize
 		mechanize = Mechanize.new
 		soccerlens_page = mechanize.get("http://soccerlens.com/")
 		# mechanize.get("http://soccerlens.com/").search(".articleindex")

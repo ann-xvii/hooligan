@@ -25,9 +25,19 @@
 			</div>	
 			<% end %>
 		</div>
-		<div class="col-md-4">
-			
-		</div>
+		<aside class="col-md-5">
+			<h3 style="text-align: center; padding-bottom: 10px;">Posts, Comments, Blather</h3>
+			<!-- <section class="user_info">
+				<%#= render 'shared/user_info' %>
+			</section> -->
+			<section class="post_form">
+				<%= render 'shared/post_form' %>
+			</section>
+			<section>
+				<h3>posts</h3>
+				<%= render 'shared/feed' %>
+			</section>
+		</aside>
 	</div>
 </div>
 

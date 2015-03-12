@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :users
+  resources :posts, only: [:create, :destroy]
 
   get '/recaps' => 'recaps#index', as: :recaps
   get '/in_depth' => 'recaps#analysis', as: :in_depth
