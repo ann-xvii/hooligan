@@ -24,7 +24,7 @@ class RecapsController < ApplicationController
 				author_link: "",
 				excerpt: "",
 				image: "",
-				local_image: ""
+				escaped_title: ""
 			}
 			text = article.at_css(".postWrapper .postTitle").text
 			puts text
@@ -36,8 +36,13 @@ class RecapsController < ApplicationController
 			article_unit[:excerpt] = article.at_css(".postWrapper .article-excerpt p").text.strip
 			article_unit[:image] = article.at_css(".postWrapper .article-excerpt .featured-image img").attr("src")
 			
-			
-			mechanize.get(article_unit[:image]).save "app/assets/images/#{article_unit[:title]}.jpg"
+			# format image title, remove spaces
+			# save formatted title string
+
+			temp_title = article_unit[:title].gsub(/[^0-9a-z ]/i, '')
+
+			article_unit[:escaped_title] = CGI::escape(temp_title)
+			mechanize.get(article_unit[:image]).save "app/assets/images/#{article_unit[:escaped_title]}.jpg"
 
 			@soccer_article_container.push(article_unit)
 		end
