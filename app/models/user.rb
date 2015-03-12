@@ -10,7 +10,7 @@ class User
   mount_uploader :image, AvatarUploader
   field :remove_image
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   validates :firstname, presence: true
   validates :lastname, presence: true
