@@ -49,6 +49,9 @@ gem 'poltergeist', '~> 1.6.0'
 gem 'database_cleaner', '~> 1.3.0'
 gem 'rspec_junit_formatter', :github => 'circleci/rspec_junit_formatter', group: :test
 
+# soccer search
+gem 'mechanize', '~> 2.7.3'
+
 group :test do
   gem 'shoulda-matchers', require: false
 end
