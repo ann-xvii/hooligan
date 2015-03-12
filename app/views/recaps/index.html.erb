@@ -1,31 +1,32 @@
-<h1>Football Recaps</h1>
+<div class="container">
+	<h1>Football Recaps</h1>
 
-<h3>Did you see that ludicrous display last night? &#0153;</h3>
+	<h3>Did you see that ludicrous display last night? &#0153;</h3>
 
-<h4><%#= link_to @ludicrous_title, @ludicrous_link %></h4>
-<h6><%#= link_to @ludicrous_date, @ludicrous_author_link %></h6>
-<div>
-	<a href="<%#= @ludicrous_image %>"><img src="<%#= @ludicrous_image %>"></a>
-	<p><%#= link_to @ludicrous_excerpt, @ludicrous_link %></p>
-	<p><%#= @full_text %></p>
-</div>
-
-<div class="row">
-	<div class="col-md-7">
-		<% @soccer_article_container.each do |article| %>
-		<div class="articleWrapper">
-			<h4><%= article[:title] %></h4>
-			<h6><%= link_to article[:date], article[:author_link] %></h6>
-			<p class="article-style">
-				<%= link_to article[:excerpt], article[:link] %>
-			</p>
-			<%#= image_tag(article[:escaped_title] + ".jpg") %>
-		</div>	
-		<% end %>
+	<h4><%#= link_to @ludicrous_title, @ludicrous_link %></h4>
+	<h6><%#= link_to @ludicrous_date, @ludicrous_author_link %></h6>
+	<div>
+		<a href="<%#= @ludicrous_image %>"><img src="<%#= @ludicrous_image %>"></a>
+		<p><%#= link_to @ludicrous_excerpt, @ludicrous_link %></p>
+		<p><%#= @full_text %></p>
 	</div>
-	<div class="col-md-4">
-		
+
+	<div class="row">
+		<div class="col-md-7">
+			<% @soccer_article_container.each do |article| %>
+			<div class="articleWrapper">
+				<h4><%= article[:title] %></h4>
+				<h6><%= link_to article[:date], article[:author_link] %></h6>
+				<p class="article-style">
+					<%= link_to article[:excerpt], article[:link] %>
+				</p>
+				<%#= image_tag(article[:escaped_title] + ".jpg") %>
+			</div>	
+			<% end %>
+		</div>
+		<div class="col-md-4">
+			
+		</div>
 	</div>
 </div>
-
 

@@ -42,7 +42,7 @@ class RecapsController < ApplicationController
 			temp_title = article_unit[:title].gsub(/[^0-9a-z ]/i, '')
 
 			article_unit[:escaped_title] = CGI::escape(temp_title)
-			mechanize.get(article_unit[:image]).save "app/assets/images/#{article_unit[:escaped_title]}.jpg"
+			#mechanize.get(article_unit[:image]).save "app/assets/images/#{article_unit[:escaped_title]}.jpg"
 
 			@soccer_article_container.push(article_unit)
 		end
