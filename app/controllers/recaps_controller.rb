@@ -36,7 +36,7 @@ class RecapsController < ApplicationController
 			article_unit[:excerpt] = article.at_css(".postWrapper .article-excerpt p").text.strip
 			article_unit[:image] = article.at_css(".postWrapper .article-excerpt .featured-image img").attr("src")
 			
-			if "app/assets/images/article_unit"
+			
 			mechanize.get(article_unit[:image]).save "app/assets/images/#{article_unit[:title]}.jpg"
 
 			@soccer_article_container.push(article_unit)
