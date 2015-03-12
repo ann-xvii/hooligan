@@ -10,14 +10,22 @@
 	<p><%#= @full_text %></p>
 </div>
 
+<div class="row">
+	<div class="col-md-7">
+		<% @soccer_article_container.each do |article| %>
+		<div class="articleWrapper">
+			<h4><%= article[:title] %></h4>
+			<h6><%= link_to article[:date], article[:author_link] %></h6>
+			<p class="article-style">
+				<%= link_to article[:excerpt], article[:link] %>
+			</p>
+			<%#= image_tag(article[:escaped_title] + ".jpg") %>
+		</div>	
+		<% end %>
+	</div>
+	<div class="col-md-4">
+		
+	</div>
+</div>
 
-<% @soccer_article_container.each do |article| %>
-<div class="articleWrapper">
-	<h4><%= article[:title] %></h4>
-	<h6><%= link_to article[:date], article[:author_link] %></h6>
-	<p>
-		<%= link_to article[:excerpt], article[:link] %>
-	</p>
-	<%= image_tag(article[:escaped_title] + ".jpg") %>
-</div>	
-<% end %>
+
