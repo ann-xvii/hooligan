@@ -10,6 +10,8 @@ class User
   mount_uploader :image, AvatarUploader
   field :remove_image
 
+  has_many :posts
+
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: {case_sensitive: false }

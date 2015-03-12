@@ -40,6 +40,9 @@ class UsersController < ApplicationController
 		end
 	end
 
+
+	
+
 	def destroy
 		User.find(params[:id]).destroy
 		flash[:success] = "User deleted"
@@ -50,7 +53,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation, :image, :remove_image)
+		params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation, :image, :remove_image, :post_ids => [])
 	end
 
 	# BEFORE FILTERS
