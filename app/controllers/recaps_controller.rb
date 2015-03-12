@@ -12,8 +12,8 @@ class RecapsController < ApplicationController
 		# add placeholder for current user to comment on the games
 		if logged_in?
 			@post = current_user.posts.build if logged_in?
-			@feed_items = current_user.feed.order_by(created_at: :desc)
-			@all_posts = Post.all.order_by(created_at: :desc)
+			# @feed_items = current_user.feed.order_by(created_at: :desc)
+			# @all_posts = Post.all.order_by(created_at: :desc)
 		end
 
 		# initialize mechanize
