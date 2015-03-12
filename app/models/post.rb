@@ -6,7 +6,7 @@ class Post
   mount_uploader :picture, PictureUploader
 
   validates :content, presence: true, length: { maximum: 400 }
-  validates :picture_size
+  validate :picture_size
 
   belongs_to :user
 
