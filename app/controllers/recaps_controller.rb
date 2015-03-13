@@ -83,9 +83,27 @@ class RecapsController < ApplicationController
 
 	def analysis
 
-		agent = Mechanize.new
-		page = agent.get("http://www.bbc.com/sport/0/football/gossip/")
+		mechanize = Mechanize.new
+		page = mechanize.get("http://www.theguardian.com/football/blog/2015/mar/12/europa-league-emerge-champions-league-shadows")
 
+		mechanize.page.parser.at_css(".content__headline .js-score").text.strip
+
+		article_unit = {
+			title: "",
+			link: "",
+			date: "",
+			author_link: "",
+			excerpt: "",
+			image: "",
+			escaped_title: ""
+		}
+
+		article_unit[:title] = mechanize.page.parser.at_css(".content__headline .js-score").text.strip
+		article_unit[:link] = "http://www.theguardian.com/football/blog/2015/mar/12/europa-league-emerge-champions-league-shadows"
+		article_unit[:date] = mechanize.page.parser.at_css(".content__dateline time").text.strip
+		article_unit[:author_link] = mechanize.page.parser.at_css(".byline").text.strip
+		article_unit[:excerpt] = mechanize.page.parser.at_css(".content__article-body").text.strip
+		article_unit[:image] = ""
 	end
 
 end
