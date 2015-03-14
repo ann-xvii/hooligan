@@ -83,8 +83,28 @@ class RecapsController < ApplicationController
 
 	def analysis
 
-		agent = Mechanize.new
-		page = agent.get("http://www.bbc.com/sport/0/football/gossip/")
+		article = Struct.new(:title, :body, :byline, :time, :link)
+		mechanize = Mechanize.new
+		# page = agent.get("http://www.theguardian.com/football")
+
+		# mechanize.page.parser.at_css('.fc-container__inner .fc-container__header .fc-container__header__title span').text.strip
+
+		# mechanize.page.parser.at(".fc-container__inner .fc-container__header .fc-container__header__title span:contains('in depth')").text.strip
+		mechanize.get("http://www.theguardian.com/football/blog/2015/mar/14/its-time-to-rediscover-our-love-of-headers")
+
+		@current_article = {
+			title: "",
+			body: "",
+			byline: "",
+			time: "",
+			link: "" 
+		}
+		@current_article[:title] = mechanize.page.parser.css(".content__headline").text.strip
+		@current_article[:body] = mechanize.page.parser.css(".content__article-body p").text.strip
+		@current_article[:byline] = mechanize.page.parser.css(".byline").text.strip
+		@current_article[:time] = mechanize.page.parser.css(".content__dateline-wpd").text.strip
+		@current_article[:link] = "http://www.theguardian.com/football/blog/2015/mar/14/its-time-to-rediscover-our-love-of-headers"
+
 
 	end
 
