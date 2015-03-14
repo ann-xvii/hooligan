@@ -17,10 +17,10 @@
 		<h3 style="text-align: center; padding-bottom: 10px;">Today's Top Topics</h3>
 			<% @soccer_article_container.each do |article| %>
 			<div class="articleWrapper">
-				<h4><%= link_to article[:title], article[:link] %></h4>
-				<h6><%= link_to article[:date], article[:author_link] %></h6>
+				<h4><%= link_to article[:title], article[:link], target: '_blank' %></h4>
+				<h6><%= link_to article[:date], article[:author_link], target: '_blank' %></h6>
 				<p class="article-style">
-					<%= link_to article[:excerpt], article[:link] %>
+					<%= link_to article[:excerpt], article[:link], target: '_blank' %>
 				</p>
 				<%#= image_tag(article[:escaped_title] + ".jpg") %>
 			</div>	
