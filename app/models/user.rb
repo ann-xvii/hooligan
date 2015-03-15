@@ -8,6 +8,8 @@ class User
   field :password_digest, type: String
   field :remember_digest, type: String
   field :admin, type: Boolean, default: false
+  field :reset_digest, type: String
+  field :reset_sent_at, type: Time
 
   mount_uploader :image, AvatarUploader
   field :remove_image
@@ -20,8 +22,7 @@ class User
   validates :password, presence: true, length: { in: 6..20}, confirmation: true, allow_blank: true
  
   attr_reader :password
-  attr_accessor :remember_token
-  attr_accessor :remove_image
+  attr_accessor :remember_token, :remove_image, :reset_token
   
   def date_published
     created_at.localtime.strftime("%A, %B %-d, %Y at %l:%M %p")
@@ -90,6 +91,21 @@ class User
     Post.where(user_id: id)
   end
 
+
+  # sets the password reset attributes
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest, User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    self.reset_sent_at < 2.hours.ago
+  end
 
   private 
 
