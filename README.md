@@ -3,7 +3,7 @@
 
 Welcome to Hooligan, a place for football/soccer fans worldwide to unite.
 
-## Software used in Hooligans
+## Software used in Hooligan
 
 Hooligan runs on the following technologies:
 
