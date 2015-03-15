@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   root 'static_pages#home'
   get '/home' => 'static_pages#home', as: :home
   get '/about' => 'static_pages#about', as: :about
@@ -18,6 +22,8 @@ Rails.application.routes.draw do
 
   get '/recaps' => 'recaps#index', as: :recaps
   get '/in_depth' => 'recaps#analysis', as: :in_depth
+
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
